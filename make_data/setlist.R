@@ -19,6 +19,7 @@ rireki_urls <- rireki_years %>%
                  ".html"
                  ))
 
+# ライブ日程
 live_dates <- rireki_urls %>%
   map(
     ~{Sys.sleep(1)
@@ -40,6 +41,7 @@ live_urls <- live_dates %>%
                  ))
 
 
+# セットリストの取得
 setlist_all <- list()
 for (i in seq_len(length(live_urls))) {
   Sys.sleep(2)
