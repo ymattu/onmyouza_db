@@ -18,7 +18,6 @@ album_years <- album_info %>%
   html_text() %>%
   map_chr(~str_match(., '(?<=<).*?(?=年)')) #'<' と '年' に囲まれた部分
 
-
 album_types <- album_info %>%
   html_text() %>%
   map(~str_match_all(., '(?<=\r\n).*?(?=\r\n)')) %>%
