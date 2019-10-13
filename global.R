@@ -2,9 +2,10 @@ library(tidyverse)
 library(shiny)
 library(DT)
 library(leaflet)
-library(ggmap)
+# library(ggmap)
 
-df_dvd_songs <- read_rds('data/df_dvd_songs.rds')
+df_dvd_songs <- read_rds('data/df_dvd_songs.rds') %>%
+  filter(!str_detect(song, '収録'))
 df_setlists <- read_rds('data/df_setlists.rds')
 df_songs <- read_rds('data/df_songs.rds')
 
