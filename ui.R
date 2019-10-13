@@ -1,5 +1,5 @@
 shinyUI(fluidPage(
-  titlePanel("陰陽座DB"),
+  titlePanel("陰陽座データベース"),
   tabsetPanel(type = "tabs",
               tabPanel("DVD", DT::dataTableOutput("dvd")),
               tabPanel("Live Setlist", DT::dataTableOutput("setlist")),
