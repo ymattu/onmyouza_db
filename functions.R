@@ -40,8 +40,8 @@ extract_setlist <- function(url) {
                venue = date_venue[2],
                section = sections,
                song = songs) %>%
-    unnest(song, .drop = FALSE) %>%
-    unnest() %>%
+    unnest_longer(song) %>%
+    unnest(cols = c(date, venue, section)) %>%
     group_by(section) %>%
     mutate(order = row_number(),
            date = lubridate::ymd(date)) %>%
