@@ -1,0 +1,13 @@
+name: Onmyouza_Database
+title: Onmyouza_Database
+username:
+account: ymattu
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1322510
+bundleId: 2495872
+url: https://ymattu.shinyapps.io/Onmyouza_Database/
+when: 1570952164.11445
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: data-raw/dvd.R|data-raw/setlist.R|data-raw/singles.R|data-raw/songs.R|snippets/get_setlist.R|snippets/get_songs_data.R
