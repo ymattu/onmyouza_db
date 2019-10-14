@@ -1,7 +1,7 @@
 library(tidyverse)
 library(shiny)
 library(DT)
-library(leaflet)
+# library(leaflet)
 # library(ggmap)
 
 setlists_rds <- list.files(path = here::here('data'),
