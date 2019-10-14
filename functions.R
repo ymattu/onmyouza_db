@@ -118,7 +118,11 @@ update_setlist_data <- function() {
     
   }
   
-  df_setlist_new <- bind_rows(setlist_new)
+  df_setlist_new <- bind_rows(setlist_new) %>%
+    ungroup() %>%
+    mutate(section = as.factor(section),
+           section = fct_relevel(section, "MAIN"),
+           song = str_remove_all(song, '\r\n'))
   
   message("Saving New Data...")
   saveRDS(df_setlist_new,

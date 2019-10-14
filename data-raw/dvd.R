@@ -64,6 +64,7 @@ df_dvd_songs <- tibble(dvd_year = dvd_years,
                               dvd_title_yomi)) %>%
   filter(str_detect(song, "※") == F) %>% 
   group_by(dvd_title_kanji) %>%
-  mutate(live_order = row_number())
+  mutate(live_order = row_number()) %>%
+  filter(!str_detect(song, '収録'))
 
 saveRDS(df_dvd_songs, here::here('data', 'df_dvd_songs.rds'))

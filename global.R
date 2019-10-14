@@ -8,14 +8,10 @@ setlists_rds <- list.files(path = here::here('data'),
                            pattern = 'setlists',
                            full.names = T)
 
-df_dvd_songs <- read_rds('data/df_dvd_songs.rds') %>%
-  filter(!str_detect(song, '収録'))
+df_dvd_songs <- read_rds('data/df_dvd_songs.rds')
 df_setlists <- setlists_rds %>%
   map_dfr(read_rds) %>%
-  ungroup() %>%
-  mutate(section = as.factor(section),
-         section = fct_relevel(section, "MAIN"),
-         song = str_remove_all(song, '\r\n')) %>%
+  mutate(section = fct_relevel(as.factor(section), "MAIN")) %>%
   arrange(date, section, order)
 df_songs <- read_rds('data/df_songs.rds')
 

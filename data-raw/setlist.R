@@ -53,7 +53,11 @@ for (i in seq_len(length(live_urls))) {
   
 }
 
-df_setlist_all <- bind_rows(setlist_all)
+df_setlist_all <- bind_rows(setlist_all) %>%
+  ungroup() %>%
+  mutate(section = as.factor(section),
+         section = fct_relevel(section, "MAIN"),
+         song = str_remove_all(song, '\r\n'))
 
 saveRDS(df_setlist_all, here::here('data', 'df_setlists.rds'))
 
