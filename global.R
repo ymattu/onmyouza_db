@@ -14,7 +14,8 @@ df_setlists <- setlists_rds %>%
   map_dfr(read_rds) %>%
   ungroup() %>%
   mutate(section = as.factor(section),
-         section = fct_relevel(section, "MAIN")) %>%
+         section = fct_relevel(section, "MAIN"),
+         song = str_remove_all(song, '\r\n')) %>%
   arrange(date, section, order)
 df_songs <- read_rds('data/df_songs.rds')
 
