@@ -41,16 +41,16 @@ extract_setlist <- function(url) {
   
   
   df <- tibble(date = date_venue[1],
-               title = title,
+               tour_name = title,
                venue = date_venue[2],
                section = sections,
                song = songs) %>%
     unnest_longer(song) %>%
-    unnest(cols = c(date, title, venue, section)) %>%
+    unnest(cols = c(date, tour_name, venue, section)) %>%
     group_by(section) %>%
     mutate(order = row_number(),
            date = lubridate::ymd(date)) %>%
-    select(date, title, venue, section, order, song)
+    select(date, tour_name, venue, section, order, song)
   
   return(df)
 }

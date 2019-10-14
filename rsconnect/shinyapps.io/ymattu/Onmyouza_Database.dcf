@@ -5,9 +5,9 @@ account: ymattu
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 1322510
-bundleId: 2495885
+bundleId: 2497965
 url: https://ymattu.shinyapps.io/Onmyouza_Database/
-when: 1570952832.78997
+when: 1571033453.67236
 asMultiple: FALSE
 asStatic: FALSE
 ignoredFiles: data-raw/dvd.R|data-raw/setlist.R|data-raw/singles.R|data-raw/songs.R|snippets/get_setlist.R|snippets/get_songs_data.R

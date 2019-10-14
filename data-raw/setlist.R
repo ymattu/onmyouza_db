@@ -39,7 +39,7 @@ live_urls <- live_dates %>%
                  .x,
                  ".html"
                  ))
-
+live_urls <- live_urls[1:513] # 20190816まで
 
 # セットリストの取得
 setlist_all <- list()
