@@ -1,13 +1,19 @@
 shinyServer(function(input, output) {
   
   output$dvd <- DT::renderDataTable(df_dvd_songs,
-                                    options = dt_options)
+                                    server = F,
+                                    extensions = c('Buttons'), 
+                                    options = dt_options_dvd)
   
   output$setlist <- DT::renderDataTable(df_setlists,
-                                        options = dt_options)
+                                        server = F,
+                                        extensions = c('Buttons'),
+                                        options = dt_options_setlist)
   
   output$songs <- DT::renderDataTable(df_songs,
-                                      options = dt_options)
+                                      server = F,
+                                      extensions = c('Buttons'),
+                                      options = dt_options_album)
   
   # leaflet
   values = reactiveValues(geocodes = data.frame(lng = 139.7545, lat = 35.70346))
