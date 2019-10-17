@@ -58,8 +58,15 @@ extract_setlist <- function(url) {
 #' Update Setlist Data
 #' 
 update_setlist_data <- function() {
+  setlists_rds <- list.files(path = here::here('data'),
+                             pattern = 'setlists',
+                             full.names = T)
+  
   omz_bio <- "https://www.onmyo-za.net/biography/index.html"
-  df_setlists <- read_rds('data/df_setlists.rds')
+  df_setlists <- rdf_setlists <- setlists_rds %>%
+    map_dfr(read_rds) %>%
+    mutate(section = fct_relevel(as.factor(section), "MAIN")) %>%
+    arrange(date, section, order)
   db_latest <- df_setlists$date %>% tail(1)
   omz_years <- year(df_setlists$date %>% tail(1) + days(1)):year(Sys.Date())
   
